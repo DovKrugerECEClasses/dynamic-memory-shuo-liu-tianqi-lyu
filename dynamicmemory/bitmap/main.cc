@@ -81,7 +81,12 @@ public:
 
     void ellipse(uint32_t xCenter, uint32_t yCenter, uint32_t Width, uint32_t Height, Color& c){
         for(int i = xCenter - (Width / 4) + 1; i <= xCenter + (Width / 4); i++){
-            rgb[i]
+            rgb[(y * height - (Height / 2)) + i] = c.getColor();
+            rgb[(y * height + (Height / 2)) + i] = c.getColor();
+        }
+        for(int j = yCenter - (Height / 4) + 1; j <= yCenter + (Height / 4); j++){
+            rgb[j * height + (x - (Width / 4))] = c.getColor();
+            rgb[j * height + (x + (Width / 4))] = c.getColor();
         }
     }
 
