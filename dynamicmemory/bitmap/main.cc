@@ -4,18 +4,18 @@ using namespace std;
 
 Class Bitmap{
 private:
-    uint32_t* rgba;
+    uint32_t* rgb;
     uint32_t width, height;
 public:
-    Bitmap(unit32_t width, unit32_t height, uint32_t defa = 0x000000):rgba(new char[width * height]), width(width), height(height){
+    Bitmap(unit32_t width, unit32_t height, uint32_t defa = 0x000000):rgb(new char[width * height]), width(width), height(height){
         for (int i = 0; i < width; i++) {
             for (int j = 0; j < height; j++) {
-                rgba[i * height + j] = defa;
+                rgb[i * height + j] = defa;
             }
         }
     }
     ~Bitmap(){
-        delete [] rgba;
+        delete [] rgb;
     }
 
     void line(uint32_t x1, uint32_t x2, uint32_t y1, uint32_t y2, Color& c){
@@ -30,7 +30,7 @@ public:
         double error = 0;
         int a = y1;
         for (int i = x1; i <= x2; i++){
-            rgba[i * height + a] = c.getColor();
+            rgb[i * height + a] = c.getColor();
             error = error + deltaerr;
             if(error >= 0.5){
                 if(deltay > 0){
@@ -47,20 +47,20 @@ public:
 
     void horizLine(uint32_t x1, uint32_t x2, uint32_t y, Color& c){
         for (int i = x1; i <= x2; i++) {
-            rgba[y * height + i] = c.getColor();
+            rgb[y * height + i] = c.getColor();
         }
     }
 
     void vertLine(uint32_t x, uint32_t y1, uint32_t y2, Color& c){
         for (int i = y1; i <= y2 ; i++) {
-            rgba[i * height + x] = c.getColor();
+            rgb[i * height + x] = c.getColor();
         }
     }
 
     void fillRect(uint32_t x1, uint32_t y1, uint32_t Width, uint32_t Height, Color& c){
         for (int i = x1; i <= x1 + Width; i++) {
             for (int j = y1; j <= y1 + Height; j++){
-                rgba[j * height + i] = c.getColor();
+                rgb[j * height + i] = c.getColor();
             }
         }
     }
@@ -69,10 +69,10 @@ public:
         for (int i = x1; i <= x1 + Width; i++) {
             for (int j = y1; j <= y1 + Height; j++){
                 if (j == y1 || j == y1 + Height - 1){
-                    rgba[j * height + i] = c.getColor();
+                    rgb[j * height + i] = c.getColor();
                 } else{
                     if(i == x1 || i == x1 + Width - 1){
-                        rgba[j * height + i] = c.getColor();
+                        rgb[j * height + i] = c.getColor();
                     }
                 }
             }
@@ -81,8 +81,18 @@ public:
 
     void ellipse(uint32_t xCenter, uint32_t yCenter, uint32_t Width, uint32_t Height, Color& c){
         for(int i = xCenter - (Width / 4) + 1; i <= xCenter + (Width / 4); i++){
-            rgba[i]
+            rgb[i]
         }
+    }
+
+    friend ostream& operator <<(ostream& s, Bitmap x){
+        for(int i = 0; i < x.height; i++){
+            for(int j = 0; j < x.width; j++){
+                s << x.rgb[x.width * i + j] << " ";
+            }
+            s << '\n';
+        }
+        return s;
     }
 };
 

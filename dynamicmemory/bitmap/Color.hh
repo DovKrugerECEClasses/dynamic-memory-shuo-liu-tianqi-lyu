@@ -8,6 +8,7 @@ public:
         rgba = (r << 16) + (g << 8) + b;
 	}
 
+
 	char getColor(){
 	    if(rgba == 0xFF0000){
             return 'R';
