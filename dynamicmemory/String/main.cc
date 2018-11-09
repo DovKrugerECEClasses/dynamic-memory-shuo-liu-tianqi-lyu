@@ -15,7 +15,7 @@ int main() {
 	String x = "qqq";
 	copy2 = copy = x; // this is why we need to return String& in operator =
 	cout << copy << '\n'; // prints qqq
-  copy = copy; // for a single = it would not matter
+    copy = copy; // for a single = it would not matter
 	cout << copy << '\n'; // prints qqq
 	
 	String s3("xyz", 5); // xyzxyzxyzxyzxyz
