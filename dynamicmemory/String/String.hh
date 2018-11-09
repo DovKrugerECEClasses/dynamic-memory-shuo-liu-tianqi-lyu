@@ -62,7 +62,7 @@ public:
 	}
 
     friend ostream& operator<<(ostream& s, const String& str) {
-	    for (uint32_t i = 0; i < len; i++){
+	    for (uint32_t i = 0; i < str.len; i++){
 	        s << str[i];
 	    }
         return s;
