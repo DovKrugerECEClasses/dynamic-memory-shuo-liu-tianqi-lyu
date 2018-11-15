@@ -51,6 +51,7 @@ String& String::operator =(const String& orig) {
 char String::operator [](const uint32_t pos)const {
     return s[pos];
 }
+
 char& String::operator [](uint32_t pos) {
     return s[pos];
 }
