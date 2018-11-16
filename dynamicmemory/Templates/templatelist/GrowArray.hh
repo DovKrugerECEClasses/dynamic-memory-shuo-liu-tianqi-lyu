@@ -12,7 +12,8 @@ private:
     void checkGrow() {
         if (used <= capacity){
             return;
-        } else {// don't grow unless you have to
+        } else {
+            // don't grow unless you have to
             T *old = data;
             //TODO: every time the list grows, double it!!!
             data = new T[capacity * 2]; // calls T::T()
