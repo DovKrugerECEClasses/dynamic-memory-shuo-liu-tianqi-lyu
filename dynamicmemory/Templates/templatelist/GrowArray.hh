@@ -12,15 +12,15 @@ private:
     void checkGrow() {
         if (used <= capacity){
             return;
-        } else {
-            capacity = capacity * 2; // don't grow unless you have to
+        } else {// don't grow unless you have to
+            T *old = data;
+            //TODO: every time the list grows, double it!!!
+            data = new T[capacity * 2]; // calls T::T()
+            for (int i = 0; i < used; i++){
+                data[i] = old[i];
+            }
+            delete[]old;
         }
-        T* old = data;
-        //TODO: every time the list grows, double it!!!
-        data = new T[used+1]; // calls T::T()
-        for (int i = 0; i < used; i++)
-            data[i] = old[i];
-        delete []old;
     }
 public:
     GrowArray() : used(0), capacity(0), data(nullptr) {}
