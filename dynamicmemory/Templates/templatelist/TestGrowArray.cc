@@ -16,9 +16,13 @@ public:
 int main() {
     GrowArray<int> a;
     //TODO:	GrowArray b(1000);
-    for (int i = 0; i < 10; i++)
+    GrowArray<int> b(1000);
+    for (int i = 0; i < 1000; i++){
+        b.addEnd(i);
+    }
+    for (int i = 0; i < 10; i++){
         a.addEnd(i);
-
+    }
     a.removeEnd();
     cout << a;
 
