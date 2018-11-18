@@ -9,8 +9,9 @@ private:
     int used;
     int capacity;
     T* data;
-    void checkGrow() {
-        if (used <= capacity){
+    void checkGrow(int addLen) {
+        newLen = used + addLen
+        if (newLen <= capacity){
             return;
         } else {
             // don't grow unless you have to
@@ -44,7 +45,7 @@ public:
     }
 
     void addEnd(const T& v) {
-        checkGrow();
+        checkGrow(1);
         data[used-1] = v;
     }
 
