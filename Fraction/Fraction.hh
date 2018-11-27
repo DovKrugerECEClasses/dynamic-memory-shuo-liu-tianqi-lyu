@@ -1,6 +1,8 @@
 #pragma once
 #include <iostream>
 
+using namespace std;
+
 class Fraction {
 private:
     int num, den;
@@ -9,5 +11,5 @@ public:
     Fraction(int n, int d);
     friend Fraction	operator +(Fraction left, Fraction right);
     Fraction operator -(Fraction f);
-    friend std::ostream& operator <<(std::ostream& s, Fraction f);
+    friend ostream& operator <<(ostream& s, Fraction f);
 };
