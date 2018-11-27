@@ -10,12 +10,12 @@ Fraction operator +(const Fraction& a, const Fraction& b) {
 }
 
 // member operator
-Fraction Fraction::operator -(const Fraction& f) const {
-    return Fraction(num * f.den - den * f.num, den * f.den);
+Fraction Fraction::operator -(const Fraction& c) const {
+    return Fraction(num * c.den - den * c.num, den * c.den);
 }
 
-ostream& operator <<(ostream& s, const Fraction& b) {
-    s << b.num << "/" << b.den << '\n';
+ostream& operator <<(ostream& s, const Fraction& f) {
+    s << f.num << "/" << f.den << '\n';
     return s;
 }
 

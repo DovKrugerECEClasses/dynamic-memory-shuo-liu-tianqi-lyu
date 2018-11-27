@@ -9,7 +9,7 @@ private:
     void simplify();
 public:
     Fraction(int n, int d);
-    friend Fraction	operator +(Fraction left, Fraction right);
-    Fraction operator -(Fraction f);
-    friend ostream& operator <<(ostream& s, Fraction f);
+    friend Fraction	operator +(const Fraction& a, const Fraction& b);
+    Fraction operator -(const Fraction& c)const ;
+    friend ostream& operator <<(ostream& s, const Fraction& f);
 };
