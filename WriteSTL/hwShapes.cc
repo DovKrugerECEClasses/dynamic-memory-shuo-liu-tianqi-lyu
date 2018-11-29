@@ -79,8 +79,8 @@ public:
                 <<" "<<faces[i].getV2().getZ()<<endl;
             file<<"vertex "<<faces[i].getV3().getX()<<" "<<faces[i].getV3().getY()
                 <<" "<<faces[i].getV3().getZ()<<endl;
-            file<<"endLoop\n";
-            file<<"endFace\n";
+            file<<"endLoop"<<endl;
+            file<<"endFace"<<endl;
         }
     }
     void write(const string &filename){
