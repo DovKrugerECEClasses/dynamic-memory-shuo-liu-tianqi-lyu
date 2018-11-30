@@ -3,7 +3,6 @@
 	Cylinder
 	Sphere (optional)
 https://en.wikipedia.org/wiki/STL_(file_format)
-
  */
 
 #include <iostream>
@@ -168,14 +167,17 @@ public:
     }
 };
 
-/* to be done
+//to be done
 class Sphere : public shape3D{
 private:
     double r;
 public:
     Sphere(double r) : shape3D(0, 0, 0 ), r(r){}
+    double volume(){
+        return 4.0 / 3 * r * r * 3.1415926;
+    }
+    vector
 };
-*/
 
 class Design{
 private:
