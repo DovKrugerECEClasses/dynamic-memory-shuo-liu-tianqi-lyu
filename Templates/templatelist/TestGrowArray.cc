@@ -1,5 +1,5 @@
 #include "GrowArray.hh"
-#include "string"
+#include <string>
 using namespace std;
 
 class Elephant {
